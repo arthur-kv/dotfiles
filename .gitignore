@@ -1,0 +1,12 @@
+node_modules/
+.DS_Store
+.idea/
+.vscode/
+*.swp
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+config/local.json
+coverage/
+build/
+dist/
