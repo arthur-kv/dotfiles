@@ -71,8 +71,9 @@ Plug 'sainnhe/sonokai'
 " https://github.com/junegunn/fzf.vim
 " fzf is a general-purpose command-line fuzzy finder.
 " It's an interactive Unix filter for command-line that can be used with any list; files, command history, processes, hostnames, bookmarks, git commits, etc.
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" Requires: brew install the_silver_searcher
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 call plug#end()
 
 " Auto save
@@ -124,11 +125,11 @@ set t_Co=256
 " NERDTree
 let NERDTreeShowHidden = 1
 
-
 command! MakeTags !ctags -R .
 
 
-nnoremap <silent> <C-K> :FZF<CR>
+nnoremap <silent> <C-S> :FZF<CR>
+nnoremap <silent> <S-S> :Ag<CR>
 
 
 " === SNIPPETS === "
