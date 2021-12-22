@@ -124,6 +124,8 @@ set t_Co=256
 
 " NERDTree
 let NERDTreeShowHidden = 1
+nnoremap <silent> ,nrdt :NERDTree<CR>
+nnoremap <silent> ,nrdf :NERDTreeFind<CR>
 
 command! MakeTags !ctags -R .
 
@@ -135,11 +137,11 @@ nnoremap <silent> <S-S> :Ag<CR>
 " === SNIPPETS === "
 "<ESC>F{a<CR><CR><ESC>ki<TAB><TAB>
 " React:
-nnoremap ,cn i className=""<ESC>i
-nnoremap ,onc i onClick={() => }<ESC>i
-nnoremap ,ue ouseEffect(() => {});<ESC>F{a<CR><CR><ESC>ki<TAB><TAB>
-nnoremap ,us oconst [] = useState();<ESC>F[a
-nnoremap ,ur oconst  = useRef();<ESC>Ftla
+nnoremap ,rcn i className=""<ESC>i
+nnoremap ,ronc i onClick={() => }<ESC>i
+nnoremap ,rue ouseEffect(() => {});<ESC>F{a<CR><CR><ESC>ki<TAB><TAB>
+nnoremap ,rus oconst [] = useState();<ESC>F[a
+nnoremap ,rur oconst  = useRef();<ESC>Ftla
 "TODO nnoremap ,comp 
 
 " === TESTS ===
@@ -166,4 +168,4 @@ nnoremap ,mdr i```ruby<CR><CR>```<ESC>ki
 nnoremap ,mdb i```bash<CR><CR>```<ESC>ki
 
 " Misc
-nnoremap ,paste :r !pbpaste<CR>
+nnoremap ,pst :r !pbpaste<CR>
