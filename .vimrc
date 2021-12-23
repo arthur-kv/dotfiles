@@ -74,6 +74,9 @@ Plug 'sainnhe/sonokai'
 " Requires: brew install the_silver_searcher
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
 call plug#end()
 
 " Auto save
