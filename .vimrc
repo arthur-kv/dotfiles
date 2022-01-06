@@ -111,6 +111,8 @@ let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '⚠'
 let g:ale_sign_column_always = 1
 let g:ale_set_highlights = 0
+let g:ale_linters = { 'javascript': ['eslint'], 'css': ['stylelint'], 'scss': ['stylelint'] }
+let g:ale_linters_ignore = { 'html': ['stylelint'] }
 " let g:ale_change_sign_column_color=1
 " set background=dark
 highlight ALEErrorSign ctermbg=NONE ctermfg=red
