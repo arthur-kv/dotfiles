@@ -2,7 +2,9 @@ if [ -f ~/.bash_profile ]; then
     . ~/.bash_profile;
 fi
 
-set -o vi
+if (command -v brew && brew list --formula | grep -c vim ) > /dev/null 2>&1; then
+    alias vim="$(brew --prefix vim)/bin/vim"
+fi
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
