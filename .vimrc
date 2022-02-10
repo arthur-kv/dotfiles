@@ -129,6 +129,7 @@ let NERDTreeShowHidden = 1
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
 nnoremap <leader>h :ALEHover<CR>
+nnoremap <leader>gd :ALEGoToDefinition<CR>
 
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
