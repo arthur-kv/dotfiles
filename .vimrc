@@ -57,6 +57,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 
+Plug 'editorconfig/editorconfig-vim'
 call plug#end()
 
 " Auto save
@@ -109,7 +110,7 @@ let g:ale_sign_warning = '⚠'
 let g:ale_sign_column_always = 1
 let g:ale_set_highlights = 0
 let g:ale_linters = { 'javascript': ['eslint'], 'css': ['stylelint'], 'scss': ['stylelint'] }
-let g:ale_linters_ignore = { 'html': ['stylelint'] }
+let g:ale_linters_ignore = { 'html': ['stylelint'], 'typescript': ['deno'] }
 let g:ale_completion_enabled = 0
 let g:ale_floating_preview = 1
 " Use ALE's function for omnicompletion.
@@ -130,7 +131,6 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
 
 nnoremap <leader>h :ALEHover<CR>
 nnoremap <leader>gd :ALEGoToDefinition<CR>
-
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
