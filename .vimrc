@@ -137,6 +137,7 @@ nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <leader>F :NERDTreeFind<CR>
 
 nnoremap <silent> <C-S> :FZF<CR>
+" This requires https://github.com/ggreer/the_silver_searcher
 nnoremap <silent> <S-S> :Ag<CR>
 
 
