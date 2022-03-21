@@ -58,6 +58,8 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 
 Plug 'editorconfig/editorconfig-vim'
+Plug 'tpope/vim-commentary'
+Plug 'ap/vim-css-color'
 call plug#end()
 
 " Auto save
@@ -168,6 +170,8 @@ nnoremap ,j= a() => <ESC>a
 nnoremap ,ja= aasync () => <ESC>a
 nnoremap ,j=b a() => {}<ESC>F{a<CR><CR><ESC>ki<TAB><TAB>
 nnoremap ,ja=b aasync () => {}<ESC>F{a<CR><CR><ESC>ki<TAB><TAB>
+nnoremap ,jf afunction () {}<ESC>F{a<CR><CR><ESC>ki<TAB><TAB>
+
 
 " Markdown
 nnoremap ,mdjs i```javascript<CR><CR>```<ESC>ki
