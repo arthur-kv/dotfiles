@@ -60,6 +60,8 @@ Plug 'tpope/vim-repeat'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-commentary'
 Plug 'ap/vim-css-color'
+
+Plug 'posva/vim-vue'
 call plug#end()
 
 " Auto save
@@ -111,7 +113,8 @@ let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '⚠'
 let g:ale_sign_column_always = 1
 let g:ale_set_highlights = 0
-let g:ale_linters = { 'javascript': ['eslint'], 'css': ['stylelint'], 'scss': ['stylelint'] }
+let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}
+let g:ale_linters = { 'javascript': ['eslint'], 'css': ['stylelint'], 'scss': ['stylelint'], 'vue': ['eslint', 'vls'] }
 let g:ale_linters_ignore = { 'html': ['stylelint'], 'typescript': ['deno'] }
 let g:ale_completion_enabled = 0
 let g:ale_floating_preview = 1
@@ -131,8 +134,12 @@ let NERDTreeShowHidden = 1
 " Exit Vim if NERDTree is the only window remaining in the only tab.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
+" VIM Vue
+let g:vue_pre_processors = 'detect_on_enter'
+
 nnoremap <leader>h :ALEHover<CR>
 nnoremap <leader>gd :ALEGoToDefinition<CR>
+nnoremap <leader>ad :ALEDetail<CR>
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
