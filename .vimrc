@@ -153,21 +153,23 @@ nnoremap <silent> <S-S> :Ag<CR>
 " === SNIPPETS === "
 "<ESC>F{a<CR><CR><ESC>ki<TAB><TAB>
 " React:
-nnoremap ,rcn i className=""<ESC>i
+nnoremap ,rcn i className=
 nnoremap ,ronc i onClick={() => }<ESC>i
 nnoremap ,rue ouseEffect(() => {});<ESC>F{a<CR><CR><ESC>ki<TAB><TAB>
 nnoremap ,rus oconst [] = useState();<ESC>F[a
 nnoremap ,rur oconst  = useRef();<ESC>Ftla
+nnoremap ,r< o<><CR></><ESC>ko
 "TODO nnoremap ,comp 
+
 
 " === TESTS ===
 nnoremap ,xtd f.dt(f)i, () => {}<ESC>i<CR><CR><ESC>ki<TAB>
 nnoremap ,xtda f.dt(f)i, async () => {}<ESC>i<CR><CR><ESC>ki<TAB>
 
 " JS:
-nnoremap ,jimp iimport {  } from "";<CR><ESC>kf{la
-nnoremap ,jimpd iimport  from "";<CR><ESC>kftla
-nnoremap ,jimpr iimport React from "react";<CR><ESC>kftla
+nnoremap ,ji iimport {  } from "";<CR><ESC>kf{la
+nnoremap ,jid iimport  from "";<CR><ESC>kftla
+nnoremap ,jir iimport React from "react";<CR><ESC>kftla
 nnoremap ,jmap a.map(() => )<ESC>i
 nnoremap ,jfil a.filter(() => )<ESC>i
 
@@ -177,8 +179,9 @@ nnoremap ,j= a() => <ESC>a
 nnoremap ,ja= aasync () => <ESC>a
 nnoremap ,j=b a() => {}<ESC>F{a<CR><CR><ESC>ki<TAB><TAB>
 nnoremap ,ja=b aasync () => {}<ESC>F{a<CR><CR><ESC>ki<TAB><TAB>
-nnoremap ,jf afunction () {}<ESC>F{a<CR><CR><ESC>ki<TAB><TAB>
-
+nnoremap ,jf afunction () {<CR>}<ESC>kela
+nnoremap ,jfa afunction () {<CR>}<ESC>ko
+nnoremap ,js a`${}`<ESC>hi
 
 " Markdown
 nnoremap ,mdjs i```javascript<CR><CR>```<ESC>ki
