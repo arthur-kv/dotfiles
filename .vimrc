@@ -62,6 +62,8 @@ Plug 'tpope/vim-commentary'
 Plug 'ap/vim-css-color'
 
 Plug 'posva/vim-vue'
+
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
 " Auto save
