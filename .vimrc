@@ -66,6 +66,8 @@ Plug 'posva/vim-vue'
 Plug 'tpope/vim-fugitive'
 call plug#end()
 
+set statusline+=%{FugitiveStatusline()}
+
 " Auto save
 let g:auto_save=0
 " EMMET
@@ -184,6 +186,9 @@ nnoremap ,ja=b aasync () => {}<ESC>F{a<CR><CR><ESC>ki<TAB><TAB>
 nnoremap ,jf afunction () {<CR>}<ESC>kela
 nnoremap ,jfa afunction () {<CR>}<ESC>ko
 nnoremap ,js a`${}`<ESC>hi
+nnoremap ,jcl oconsole.log();<ESC>hi
+nnoremap ,jd odebugger;<ESC>
+nnoremap ,td o// TODO: <ESC>
 
 " Markdown
 nnoremap ,mdjs i```javascript<CR><CR>```<ESC>ki
