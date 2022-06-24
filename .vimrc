@@ -74,6 +74,10 @@ let g:auto_save=0
 let g:user_emmet_leader_key=','
 
 syntax on " enable syntax processing
+" https://vim.fandom.com/wiki/Fix_syntax_highlighting
+set redrawtime=10000
+set re=0
+autocmd BufEnter * :syntax sync fromstart " For the most accurate but slowest result
 " https://github.com/sainnhe/gruvbox-material/issues/5#issuecomment-729586348
 if has('termguicolors')
     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
@@ -119,7 +123,7 @@ let g:ale_sign_column_always = 1
 let g:ale_set_highlights = 0
 let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}
 let g:ale_linters = { 'javascript': ['eslint'], 'css': ['stylelint'], 'scss': ['stylelint'], 'vue': ['eslint', 'vls'] }
-let g:ale_linters_ignore = { 'html': ['stylelint'], 'typescript': ['deno'] }
+let g:ale_linters_ignore = { 'html': [], 'typescript': ['deno'] }
 let g:ale_completion_enabled = 0
 let g:ale_floating_preview = 1
 " Use ALE's function for omnicompletion.
@@ -143,7 +147,12 @@ let g:vue_pre_processors = 'detect_on_enter'
 
 nnoremap <leader>h :ALEHover<CR>
 nnoremap <leader>gd :ALEGoToDefinition<CR>
+nnoremap <leader>gi :ALEGoToImplementation<CR>
 nnoremap <leader>ad :ALEDetail<CR>
+nnoremap <leader>fr :ALEFindReferences<CR>
+nnoremap <leader>ne :ALENextWrap<CR>
+nnoremap <leader>pe :ALEPreviousWrap<CR>
+
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
