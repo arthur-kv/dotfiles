@@ -107,12 +107,17 @@ set autoindent
 set smartindent
 set cursorline " Highlight cursor line
 set scroll=5
+set scrolloff=5 " show lines above and below cursor (when possible)
 set clipboard=unnamed
 " Fix color scheme issues in TMUX:
 " https://github.com/tmux/tmux/issues/699#issuecomment-269572025
 set background=dark
 set t_Co=256
 set cursorcolumn 
+set showmatch " highlight matching [{()}]
+hi MatchParen cterm=bold ctermbg=none ctermfg=magenta
+"change colors of matching [{()}] highlight https://stackoverflow.com/a/10746829
+set noerrorbells visualbell t_vb= "Disable annoying error noises
 " https://stackoverflow.com/questions/15277241/changing-vim-gutter-color
 highlight clear SignColumn
 
