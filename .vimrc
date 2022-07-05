@@ -79,6 +79,10 @@ set redrawtime=10000
 set re=0
 autocmd BufEnter * :syntax sync fromstart " For the most accurate but slowest result
 " https://github.com/sainnhe/gruvbox-material/issues/5#issuecomment-729586348
+" When the following option is set, the screen will not be redrawn while executing macros, 
+" registers and other commands that have not been typed. 
+" Also, updating the window title is postponed. 
+set lazyredraw 
 if has('termguicolors')
     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
