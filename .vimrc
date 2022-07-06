@@ -131,7 +131,7 @@ highlight clear SignColumn
 let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '⚠'
 let g:ale_sign_column_always = 1
-let g:ale_set_highlights = 0
+" let g:ale_set_highlights = 0 " Turn off problems highlights - https://github.com/dense-analysis/ale#faq-change-highlights
 let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}
 let g:ale_linters = { 'javascript': ['eslint'], 'css': ['stylelint'], 'scss': ['stylelint'], 'vue': ['eslint', 'vls'] }
 let g:ale_linters_ignore = { 'html': [], 'typescript': ['deno'] }
@@ -142,7 +142,7 @@ set omnifunc=ale#completion#OmniFunc
 
 highlight ALEErrorSign ctermbg=NONE ctermfg=red
 highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
-highlight ALEWarning ctermbg=NONE
+" highlight ALEWarning ctermbg=NONE
 
 " vim-jsx-pretty
 let g:vim_jsx_pretty_colorful_config = 1
