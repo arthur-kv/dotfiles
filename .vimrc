@@ -64,6 +64,8 @@ Plug 'ap/vim-css-color'
 Plug 'posva/vim-vue'
 
 Plug 'tpope/vim-fugitive'
+
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 call plug#end()
 
 set statusline+=%{FugitiveStatusline()}
@@ -154,6 +156,10 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
 " VIM Vue
 let g:vue_pre_processors = 'detect_on_enter'
 
+" Golang
+" Use new vim 8.2 popup windows for Go Doc
+let g:go_doc_popup_window = 1
+
 nnoremap <leader>h :ALEHover<CR>
 nnoremap <leader>gd :ALEGoToDefinition<CR>
 nnoremap <leader>gi :ALEGoToImplementation<CR>
@@ -173,40 +179,43 @@ nnoremap <silent> <S-S> :Ag<CR>
 
 
 " === SNIPPETS === "
-"<ESC>F{a<CR><CR><ESC>ki<TAB><TAB>
-" React:
-nnoremap ,rcn i className=
-nnoremap ,ronc i onClick={() => }<ESC>i
-nnoremap ,rue ouseEffect(() => {});<ESC>F{a<CR><CR><ESC>ki<TAB><TAB>
-nnoremap ,rus oconst [] = useState();<ESC>F[a
-nnoremap ,rur oconst  = useRef();<ESC>Ftla
-nnoremap ,r< o<><CR></><ESC>ko
-"TODO nnoremap ,comp 
+augroup snippets_js
+  autocmd!
+    
+  " React:
+  "<ESC>F{a<CR><CR><ESC>ki<TAB><TAB>
+  autocmd FileType javascript,typescript,html,jsx nnoremap ,rcn i className=
+  autocmd FileType javascript,typescript,html,jsx nnoremap ,ronc i onClick={() => }<ESC>i
+  autocmd FileType javascript,typescript,html,jsx nnoremap ,rue ouseEffect(() => {});<ESC>F{a<CR><CR><ESC>ki<TAB><TAB>
+  autocmd FileType javascript,typescript,html,jsx nnoremap ,rus oconst [] = useState();<ESC>F[a
+  autocmd FileType javascript,typescript,html,jsx nnoremap ,rur oconst  = useRef();<ESC>Ftla
+  autocmd FileType javascript,typescript,html,jsx nnoremap ,r< o<><CR></><ESC>ko
+  "TODO nnoremap ,comp 
+  
+  " === TESTS ===
+  autocmd FileType javascript,typescript,html,jsx nnoremap ,xtd f.dt(f)i, () => {}<ESC>i<CR><CR><ESC>ki<TAB>
+  autocmd FileType javascript,typescript,html,jsx  nnoremap ,xtda f.dt(f)i, async () => {}<ESC>i<CR><CR><ESC>ki<TAB>
+  
+  " JS:
+  autocmd FileType javascript,typescript,html,jsx nnoremap ,ji iimport {  } from "";<CR><ESC>kf{la
+  autocmd FileType javascript,typescript,html,jsx nnoremap ,jid iimport  from "";<CR><ESC>kftla
+  autocmd FileType javascript,typescript,html,jsx nnoremap ,jir iimport React from "react";<CR><ESC>kftla
+  autocmd FileType javascript,typescript,html,jsx nnoremap ,jmap a.map(() => )<ESC>i
+  autocmd FileType javascript,typescript,html,jsx nnoremap ,jfil a.filter(() => )<ESC>i
 
+  autocmd FileType javascript,typescript,html,jsx nnoremap ,jr oreturn ;<ESC>i
 
-" === TESTS ===
-nnoremap ,xtd f.dt(f)i, () => {}<ESC>i<CR><CR><ESC>ki<TAB>
-nnoremap ,xtda f.dt(f)i, async () => {}<ESC>i<CR><CR><ESC>ki<TAB>
-
-" JS:
-nnoremap ,ji iimport {  } from "";<CR><ESC>kf{la
-nnoremap ,jid iimport  from "";<CR><ESC>kftla
-nnoremap ,jir iimport React from "react";<CR><ESC>kftla
-nnoremap ,jmap a.map(() => )<ESC>i
-nnoremap ,jfil a.filter(() => )<ESC>i
-
-nnoremap ,jr oreturn ;<ESC>i
-
-nnoremap ,j= a() => <ESC>a
-nnoremap ,ja= aasync () => <ESC>a
-nnoremap ,j=b a() => {}<ESC>F{a<CR><CR><ESC>ki<TAB><TAB>
-nnoremap ,ja=b aasync () => {}<ESC>F{a<CR><CR><ESC>ki<TAB><TAB>
-nnoremap ,jf afunction () {<CR>}<ESC>kela
-nnoremap ,jfa afunction () {<CR>}<ESC>ko
-nnoremap ,js a`${}`<ESC>hi
-nnoremap ,jcl oconsole.log();<ESC>hi
-nnoremap ,jd odebugger;<ESC>
-nnoremap ,td o// TODO: <ESC>
+  autocmd FileType javascript,typescript,html,jsx nnoremap ,j= a() => <ESC>a
+  autocmd FileType javascript,typescript,html,jsx nnoremap ,ja= aasync () => <ESC>a
+  autocmd FileType javascript,typescript,html,jsx nnoremap ,j=b a() => {}<ESC>F{a<CR><CR><ESC>ki<TAB><TAB>
+  autocmd FileType javascript,typescript,html,jsx nnoremap ,ja=b aasync () => {}<ESC>F{a<CR><CR><ESC>ki<TAB><TAB>
+  autocmd FileType javascript,typescript,html,jsx nnoremap ,jf afunction () {<CR>}<ESC>kela
+  autocmd FileType javascript,typescript,html,jsx nnoremap ,jfa afunction () {<CR>}<ESC>ko
+  autocmd FileType javascript,typescript,html,jsx nnoremap ,js a`${}`<ESC>hi
+  autocmd FileType javascript,typescript,html,jsx nnoremap ,jcl oconsole.log();<ESC>hi
+  autocmd FileType javascript,typescript,html,jsx nnoremap ,jd odebugger;<ESC>
+  autocmd FileType javascript,typescript,html,jsx nnoremap ,td o// TODO: <ESC>
+augroup END
 
 " Markdown
 nnoremap ,mdjs i```javascript<CR><CR>```<ESC>ki
