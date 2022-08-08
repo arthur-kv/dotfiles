@@ -47,6 +47,7 @@ Plug 'tpope/vim-rails'
 
 " === THEMES === "
 Plug 'sainnhe/sonokai'
+Plug 'nanotech/jellybeans.vim'
 
 " fzf is a general-purpose command-line fuzzy finder.
 " It's an interactive Unix filter for command-line that can be used with any list; files, command history, processes, hostnames, bookmarks, git commits, etc.
@@ -97,8 +98,8 @@ else
 endif
 let &t_ZH="\e[3m"
 let &t_ZR="\e[23m"
-let g:sonokai_enable_italic = 1
-colorscheme sonokai 
+let g:jellybeans_use_term_italics = 1
+colorscheme jellybeans
 set number " show line numbers
 set relativenumber
 set ruler
@@ -121,6 +122,7 @@ set background=dark
 set t_Co=256
 set cursorcolumn 
 set showmatch " highlight matching [{()}]
+set matchtime=0 " Remove jumping to a matching [{()}] when showmatch is enabled https://stackoverflow.com/a/36803748
 hi MatchParen cterm=bold ctermbg=none ctermfg=magenta
 "change colors of matching [{()}] highlight https://stackoverflow.com/a/10746829
 set noerrorbells visualbell t_vb= "Disable annoying error noises
@@ -160,6 +162,17 @@ let g:vue_pre_processors = 'detect_on_enter'
 " Use new vim 8.2 popup windows for Go Doc
 let g:go_doc_popup_window = 1
 
+let g:go_list_height = 10
+let g:go_list_type = "locationlist"
+
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_operators = 1
+
+
 nnoremap <leader>h :ALEHover<CR>
 nnoremap <leader>gd :ALEGoToDefinition<CR>
 nnoremap <leader>gi :ALEGoToImplementation<CR>
@@ -179,7 +192,21 @@ nnoremap <silent> <S-S> :Ag<CR>
 
 
 " === SNIPPETS === "
+
+augroup snippets_go
+  autocmd FileType go nnoremap ,gf ofunc () {<CR>}<ESC>kf(i
+  autocmd FileType go nnoremap ,gfm ofunc () Method() {<CR>}<ESC>kf(a
+  autocmd FileType go nnoremap ,gtf ofunc (t *testing.T) {<CR>}<ESC>kf(i
+
+  autocmd FileType go nnoremap ,gtr ot.Run("", func (t *testing.T) {<CR>})<ESC>kf"a
+
+  autocmd FileType go nnoremap ,gif oif  {<CR>}<ESC>kf<SPACE>a
+augroup END
+
 augroup snippets_js
+  let g:sonokai_enable_italic = 1
+  colorscheme sonokai 
+
   autocmd!
     
   " React:
