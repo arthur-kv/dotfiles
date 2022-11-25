@@ -67,6 +67,11 @@ Plug 'posva/vim-vue'
 Plug 'tpope/vim-fugitive'
 
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
+Plug 'lifepillar/pgsql.vim'
+
+" Syntax highlighting for CJSON
+Plug 'neoclide/jsonc.vim'
 call plug#end()
 
 set statusline+=%{FugitiveStatusline()}
@@ -136,7 +141,7 @@ let g:ale_sign_column_always = 1
 " let g:ale_set_highlights = 0 " Turn off problems highlights - https://github.com/dense-analysis/ale#faq-change-highlights
 let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}
 let g:ale_linters = { 'javascript': ['eslint'], 'css': ['stylelint'], 'scss': ['stylelint'], 'vue': ['eslint', 'vls'] }
-let g:ale_linters_ignore = { 'html': [], 'typescript': ['deno'] }
+let g:ale_linters_ignore = { 'html': [], 'typescript': ['deno'], 'typescriptreact': ['deno'] }
 let g:ale_completion_enabled = 0
 let g:ale_floating_preview = 1
 " Use ALE's function for omnicompletion.
@@ -172,6 +177,14 @@ let g:go_highlight_function_calls = 1
 let g:go_highlight_extra_types = 1
 let g:go_highlight_operators = 1
 
+" PostgreSQL
+let g:sql_type_default = 'pgsql'
+
+" https://vim.fandom.com/wiki/Replace_a_word_with_yanked_text
+" Remap the p command in visual mode so that it first deletes to the black hole 
+" register. This is needed if we want to paste the same text a second time.
+xnoremap <leader>p "_dP
+nmap <Leader>pr <Plug>(Prettier)
 
 nnoremap <leader>h :ALEHover<CR>
 nnoremap <leader>gd :ALEGoToDefinition<CR>
