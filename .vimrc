@@ -21,7 +21,7 @@ Plug 'mattn/emmet-vim'
 
 Plug 'prettier/vim-prettier', {
   \ 'do': 'npm i',
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html', 'typescriptreact'] }
 Plug 'w0rp/ale'
 " JavaScript bundle for vim, this bundle provides syntax highlighting and improved indentation
 Plug 'pangloss/vim-javascript'
@@ -190,7 +190,7 @@ nnoremap <leader>h :ALEHover<CR>
 nnoremap <leader>gd :ALEGoToDefinition<CR>
 nnoremap <leader>gi :ALEGoToImplementation<CR>
 nnoremap <leader>ad :ALEDetail<CR>
-nnoremap <leader>fr :ALEFindReferences<CR>
+nnoremap <leader>fr :ALEFindReferences -relative<CR>
 nnoremap <leader>ne :ALENextWrap<CR>
 nnoremap <leader>pe :ALEPreviousWrap<CR>
 
