@@ -72,6 +72,9 @@ Plug 'lifepillar/pgsql.vim'
 
 " Syntax highlighting for CJSON
 Plug 'neoclide/jsonc.vim'
+
+" A Vim plugin that toggles between hex and rgba color codes for css/sass/less editing
+Plug 'jakerobers/vim-hexrgba'
 call plug#end()
 
 set statusline+=%{FugitiveStatusline()}
@@ -202,6 +205,8 @@ nnoremap <leader>F :NERDTreeFind<CR>
 nnoremap <silent> <C-S> :FZF<CR>
 " This requires https://github.com/ggreer/the_silver_searcher
 nnoremap <silent> <S-S> :Ag<CR>
+" toggle between hex color codes and rgba for editing css/sass/less
+nnoremap <leader><C-h> :HexRgba<CR>
 
 
 " === SNIPPETS === "
