@@ -75,6 +75,9 @@ Plug 'neoclide/jsonc.vim'
 
 " A Vim plugin that toggles between hex and rgba color codes for css/sass/less editing
 Plug 'jakerobers/vim-hexrgba'
+
+" Highlights CSS in javascript template strings
+Plug 'styled-components/vim-styled-components'
 call plug#end()
 
 set statusline+=%{FugitiveStatusline()}
